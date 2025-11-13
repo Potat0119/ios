@@ -2,23 +2,22 @@
 
 import React from 'react';
 
-type TabItem = {
-  key: string;
-  label: string;
-};
+type TabItem = { key: string; label: string };
 
 export default function Tabs({
   items,
   activeKey,
   onChange,
+  rightControls,
 }: {
   items: TabItem[];
   activeKey: string;
   onChange: (key: string) => void;
+  rightControls?: React.ReactNode;
 }) {
   return (
     <div className="flex items-center justify-between border-b">
-      {/* 左側: タブ */}
+      {/* 左：タブ */}
       <div className="flex">
         {items.map((item) => (
           <button
@@ -35,8 +34,9 @@ export default function Tabs({
         ))}
       </div>
 
-      {/* 右側: Charts ボタン */}
-      <div className="mr-2">
+      {/* 右：IP入力＋モード切替＋Charts */}
+      <div className="flex items-center gap-3 pr-2">
+        {rightControls}
         <a
           href="https://charts.navigraph.com/flights"
           target="_blank"

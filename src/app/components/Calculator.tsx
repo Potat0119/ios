@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import ChinaRvsmEWTable from './ChinaRVSMTable';
 
 type LastEdited =
   | 'kgWeight' | 'lbsWeight'
@@ -196,7 +197,8 @@ export default function Calculator() {
   );
 
   return (
-    <div className="p-4 space-y-6 h-full overflow-y-auto">
+    <div className="flex gap-4">
+    <div className="p-4 space-y-6 h-full overflow-y-auto w-1/2">
       <section>
         <h2 className="font-semibold text-lg">Kg ↔ Lbs</h2>
         <div className="flex gap-4 items-center">
@@ -293,6 +295,10 @@ export default function Calculator() {
           </div>
         )}
       </section>
+    </div>
+    <div className="w-1/2">
+      <ChinaRvsmEWTable />
+    </div>
     </div>
   );
 }
